@@ -23,6 +23,19 @@ open class AlertVisualStyle: NSObject {
     /// The background color of the alert. The standard blur effect will be added if nil.
     @objc
     public var backgroundColor: UIColor?
+    
+    @objc
+    public var titleColor: UIColor?
+    
+    @objc
+    public var messageColor: UIColor?
+    
+    @objc
+    public var titleFont: UIFont?
+    
+    @objc
+    public var messageFont: UIFont?
+    
 
     /// The background color of the action sheet Cancel button. The standard blur effect will be added if nil.
     @objc

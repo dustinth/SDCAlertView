@@ -4,7 +4,7 @@ import UIKit
 final class AlertView: UIView, AlertControllerViewRepresentable {
     private let scrollView = UIScrollView()
     private let titleLabel = AlertLabel()
-    private let  messageLabel = AlertLabel()
+    private let messageLabel = AlertLabel()
     private let actionsCollectionView = ActionsCollectionView()
 
     let contentView = UIView()
@@ -26,7 +26,21 @@ final class AlertView: UIView, AlertControllerViewRepresentable {
     }
 
     var visualStyle: AlertVisualStyle! {
-        didSet { self.textFieldsViewController?.visualStyle = self.visualStyle }
+        didSet {
+            self.textFieldsViewController?.visualStyle = self.visualStyle
+            if(self.visualStyle.titleColor != nil) {
+                self.titleLabel.textColor = self.visualStyle.titleColor
+            }
+            if(self.visualStyle.titleFont != nil) {
+                self.titleLabel.font = self.visualStyle.titleFont
+            }
+            if(self.visualStyle.messageColor != nil) {
+                self.messageLabel.textColor = self.visualStyle.messageColor
+            }
+            if(self.visualStyle.messageFont != nil) {
+                self.messageLabel.font = self.visualStyle.messageFont
+            }
+        }
     }
 
     var actionTappedHandler: ((AlertAction) -> Void)? {
